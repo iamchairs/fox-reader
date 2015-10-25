@@ -60,6 +60,16 @@ module.exports = (function() {
             var divs = dom.getElementsByTagName('div');
             var body;
 
+            if(!body.getElementsByTagName) {
+               if(cb) {
+                  cb(null);
+               }
+
+               defer.resolve(null);
+               
+               return false;
+            }
+
             for(var i = 0; i < divs.length; i++) {
                var div = divs[i];
                if(div.getAttribute('itemprop') === 'articleBody') {

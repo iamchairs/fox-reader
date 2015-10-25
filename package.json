@@ -1,6 +1,6 @@
 {
   "name": "fox-reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reads a Fox News article from FoxNews.com",
   "main": "index.js",
   "scripts": {
