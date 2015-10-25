@@ -67,6 +67,17 @@ module.exports = (function() {
                   break;
                }
             }
+
+            if(!body.getElementsByTagName) {
+               if(cb) {
+                  cb(null);
+               }
+
+               defer.resolve(null);
+
+               return false;
+            }
+
             var ps = body.getElementsByTagName('p');
 
             var bodyCleanStrings = [];
