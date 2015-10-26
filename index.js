@@ -104,10 +104,21 @@ module.exports = (function() {
             for(var i = 0; i < imgs.length; i++) {
                var img = imgs[i];
                var srcFull = img.getAttribute('src');
+               var caption = img.getAttribute('alt');
                if(srcFull) {
-                  Article.images.push({
-                     full: srcFull
-                  });
+                  var found = false;
+                  for(var k = 0; k < Article.images.length; k++) {
+                     if(Article.images[k].full === srcFull) {
+                        found = true;
+                     }
+                  }
+
+                  if(!found) {
+                     Article.images.push({
+                        full: srcFull,
+                        caption: caption
+                     });
+                  }
                }
             }
 
