@@ -51,6 +51,11 @@ module.exports = function(dom) {
         case 'strong':
           markdown += strong(childNode);
           break;
+        case 'blockquote':
+          var quote = read(childNode);
+          quote = '> ' + quote.replace(/\n/g, '> ')
+          markdown += quote;
+          break;
         case undefined:
           if(childNode.constructor.name === 'Text') {
             if(childNode.data.match(/[\w]/)) {
